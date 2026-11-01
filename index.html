@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Typing Speed Test — тест скорости печати</title>
+  <meta name="description" content="Минималистичный тест скорости печати: WPM, точность, личные рекорды. Чистый HTML, CSS и JavaScript без зависимостей.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230969da'/%3E%3Cpath d='M4 6.5h8M4 9.5h8' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <span class="brand-mark" aria-hidden="true">&#9000;</span>
+        <span class="brand-name">typing-test</span>
+        <span class="brand-slash" aria-hidden="true">/</span>
+        <span class="brand-sub">portfolio</span>
+      </a>
+      <div class="segmented" role="group" aria-label="Язык текста">
+        <button class="seg-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button class="seg-btn" type="button" data-lang="ru" aria-pressed="true">RU</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Проверьте скорость печати</h1>
+      <p class="lead">
+        Печатайте текст ниже. Таймер запустится с первым символом.
+        Ошибки подсвечиваются, но не блокируют ввод — исправить можно в любой момент.
+      </p>
+    </section>
+
+    <div class="toolbar">
+      <div class="segmented" role="group" aria-label="Длительность теста">
+        <button class="seg-btn" type="button" data-seconds="15">15 сек</button>
+        <button class="seg-btn" type="button" data-seconds="30" aria-pressed="true">30 сек</button>
+        <button class="seg-btn" type="button" data-seconds="60">60 сек</button>
+      </div>
+      <p class="best" id="best">Рекорд: &mdash;</p>
+    </div>
+
+    <section class="stats" aria-label="Текущая статистика">
+      <div class="stat">
+        <span class="stat-label">WPM</span>
+        <span class="stat-value" id="stat-wpm">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Точность</span>
+        <span class="stat-value" id="stat-accuracy">100%</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Время</span>
+        <span class="stat-value" id="stat-time">30 с</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Ошибки</span>
+        <span class="stat-value" id="stat-errors">0</span>
+      </div>
+    </section>
+
+    <section class="board" id="board">
+      <div class="progress" aria-hidden="true">
+        <div class="progress-bar" id="progress"></div>
+      </div>
+      <div class="text" id="text" aria-hidden="true"></div>
+      <input
+        class="ghost-input"
+        id="input"
+        type="text"
+        inputmode="text"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        enterkeyhint="done"
+        aria-label="Поле ввода текста"
+      >
+      <div class="overlay" id="overlay">
+        <p>Начните печатать &mdash; таймер запустится сам</p>
+      </div>
+    </section>
+
+    <p class="hints">
+      <span><kbd>Tab</kbd> заново</span>
+      <span><kbd>Esc</kbd> новый текст</span>
+      <span><kbd>Enter</kbd> ещё раз после финиша</span>
+    </p>
+
+    <section class="results" id="results" aria-live="polite" hidden>
+      <div class="results-head">
+        <h2>Результат</h2>
+        <span class="record-badge" id="record-badge" hidden>Новый рекорд</span>
+      </div>
+      <div class="results-grid">
+        <div>
+          <span class="result-label">WPM</span>
+          <strong class="result-value" id="res-wpm">0</strong>
+        </div>
+        <div>
+          <span class="result-label">Точность</span>
+          <strong class="result-value" id="res-accuracy">0%</strong>
+        </div>
+        <div>
+          <span class="result-label">Верных символов</span>
+          <strong class="result-value" id="res-chars">0/0</strong>
+        </div>
+        <div>
+          <span class="result-label">Ошибок</span>
+          <strong class="result-value" id="res-errors">0</strong>
+        </div>
+      </div>
+      <div class="results-actions">
+        <button class="btn btn-primary" id="again" type="button">Ещё раз</button>
+        <button class="btn" id="next" type="button">Новый текст</button>
+      </div>
+    </section>
+
+    <noscript>
+      <p class="noscript">Для работы теста нужен JavaScript. Включите его в настройках браузера.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>HTML &middot; CSS &middot; Vanilla JS &mdash; без сборки и зависимостей</span>
+      <span>Проект для портфолио</span>
+    </div>
+  </footer>
+
+  <script src="js/texts.js" defer></script>
+  <script src="js/engine.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
