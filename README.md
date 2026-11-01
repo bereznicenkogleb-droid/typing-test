@@ -9,11 +9,7 @@
 
 ## Демо
 
-После публикации на GitHub Pages ссылка будет здесь:
-
-```
-https://<ваш-ник>.github.io/typing-test/
-```
+**Live Demo:** https://bereznicenkogleb-droid.github.io/typing-test/
 
 ## Возможности
 
